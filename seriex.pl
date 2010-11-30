@@ -110,7 +110,7 @@ sub setTitle {
     $renamedTo = $newnames -> { $file } if defined $newnames -> { $file };
 
     return if $renamedTo !~ /^S(\d+)E(\d+).*\.(\w+)$/;
-    if ( $file =~ /E\d+\-\d+/i ) {
+    if ( $file =~ /E\d+\-\d+/i || $file =~ /E\d{3,}/i ) {
         print STDERR "Careful! $file is a dual episode, and should be handled manually.\n";
         if ( $renamedTo ne $file ) {
             delete $newnames -> { $file };
