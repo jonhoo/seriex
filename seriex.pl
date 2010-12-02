@@ -55,7 +55,7 @@ for my $dir (keys %renames) {
             $newf =~ s/[^\&\,\'a-zA-Z0-9 \.\-]//g;
             print "Would you like to try '$newf' instead? [Y/n] ";
             if ( <STDIN> !~ /^n/i ) {
-                move ( $f, $newf ) or print STDERR "Failed to rename file '$f' to '$newf' aswell: $!\n";
+                move ( $f, $newf ) or print STDERR "Failed to rename file '$f' to '$newf' as well: $!\n";
             }
         }
     }
