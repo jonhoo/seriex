@@ -49,13 +49,13 @@ for my $dir (keys %renames) {
             next;
         }
 
-        if ( !move ( $f, $newf ) ) {
+        if ( !move ( $dir . "/" . $f, $dir . "/" . $newf ) ) {
             print STDERR "Failed to rename file '$f' to '$newf': $!\n";
             $newf =~ s/\s*\:\s*/ - /g;
             $newf =~ s/[^\&\,\'a-zA-Z0-9 \.\-]//g;
             print "Would you like to try '$newf' instead? [Y/n] ";
             if ( <STDIN> !~ /^n/i ) {
-                move ( $f, $newf ) or print STDERR "Failed to rename file '$f' to '$newf' as well: $!\n";
+                move ( $dir . "/" . $f, $dir . "/" . $newf ) or print STDERR "Failed to rename file '$f' to '$newf' as well: $!\n";
             }
         }
     }
