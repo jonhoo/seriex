@@ -4,6 +4,7 @@ use warnings;
 use File::Find;
 use File::Copy;
 use IMDB::Film;
+use Cwd;
 
 die "Usage: $0 <folders>\n" if @ARGV == 0;
 
@@ -41,6 +42,7 @@ print "Are you sure you want to rename all these files? [y/N] ";
 die "Okay... I'll quit then...\n" if <STDIN> !~ /^y/i;
 
 for my $dir (keys %renames) {
+    my $olddir = getcwd;
     chdir $dir;
     for my $f (keys %{ $renames { $dir } }) {
         my $newf = $renames { $dir } -> { $f };
@@ -59,6 +61,7 @@ for my $dir (keys %renames) {
             }
         }
     }
+    chdir $olddir;
 }
 
 sub processFile {
