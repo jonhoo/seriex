@@ -114,6 +114,7 @@ sub setTitle {
         print STDERR "Careful! $file is a dual episode, and should be handled manually.\n";
         if ( $renamedTo ne $file ) {
             delete $newnames -> { $file };
+        }
         return;
     }
     
