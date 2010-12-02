@@ -100,6 +100,7 @@ sub fixName {
     $newname =~ s/ -\././g;
 
     return if $newname !~ /^S\d+E\d+/;
+    return if $newname eq $file;
     $newnames -> { $file } = $newname;
 }
 
@@ -124,6 +125,7 @@ sub setTitle {
     return if not defined $seasons { $season } -> { $episode };
     
     my $newFileName = sprintf "S%02sE%02s - %s.%s", $season, $episode, $seasons { $season } -> { $episode }, $ext;
+    return if $file eq $newFileName;
     print "$file --> $newFileName\n";
     $newnames -> { $file } = $newFileName;
 }
