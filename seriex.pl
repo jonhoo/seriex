@@ -84,6 +84,7 @@ sub fixName {
     $newname =~ s/^.*s(\d+)\s*e(\d+)\b/S$1E$2 /gi;
     $newname =~ s/^.*S(\d+)\s*Episode\s*(\d+)\b/S$1E$2 /gi;
     $newname =~ s/^.*Season\s*(\d+).*Episode\s*(\d+)\b/S$1E$2 /gi;
+    $newname =~ s/^.*?(\d+)(\d{2})/S$1E$2 /g if $newname !~ /S\d+E\d+/;
 
     $newname =~ s/\[[^\[]+\]//g;
 
