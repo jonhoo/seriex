@@ -80,7 +80,6 @@ sub fixName {
     while ( $newname =~ /\.(.*)\./ ) {
         $newname =~ s/\.(.*)\./ $1./g;
     }
-    $newname =~ s/^.*?(\d+)(\d{2})\b/S$1E$2 /g;
     $newname =~ s/^.*\bS?(\d+)xE?(\d+)\b/S$1E$2 /g;
     $newname =~ s/^.*s(\d+)\s*e(\d+)\b/S$1E$2 /gi;
     $newname =~ s/^.*S(\d+)\s*Episode\s*(\d+)\b/S$1E$2 /gi;
