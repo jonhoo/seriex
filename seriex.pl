@@ -17,7 +17,7 @@ do {
     $series = new IMDB::Film ( crit => $lookup );
     if ( !$series -> status ) {
         print "Found no matching series for query: " . $series -> error . "\n";
-        next;
+        exit 0;
     }
 
     print "Found potential match for query:\n";
