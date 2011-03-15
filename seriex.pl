@@ -76,7 +76,7 @@ sub fixName {
     my $newnames = shift;
     my $newname = $file;
     
-    return if $newname =~ /^S\d+E\d+/;
+    #return if $newname =~ /^S\d+E\d+/;
 
     $newname =~ s/_/ /g;
     $newname =~ s/^.*\[(\d+)\.(\d+)\]/S$1E$2 /g;
