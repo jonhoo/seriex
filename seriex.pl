@@ -78,6 +78,15 @@ sub fixName {
     
     #return if $newname =~ /^S\d+E\d+/;
 
+    # These numbers may confuse, so we take them out
+    $newname =~ s/480p//gi;
+    $newname =~ s/720p//gi;
+    $newname =~ s/1080p//gi;
+    $newname =~ s/1080i//gi;
+    $newname =~ s/x264//gi;
+    $newname =~ s/h264//gi;
+    $newname =~ s/\d+[MG]B//gi;
+
     $newname =~ s/_/ /g;
     $newname =~ s/^.*\[(\d+)\.(\d+)\]/S$1E$2 /g;
     while ( $newname =~ /\.(.*)\./ ) {
